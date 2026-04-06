@@ -1,0 +1,11 @@
+FROM golang:1.23-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN go mod init main
+RUN go mod tidy
+RUN go build -o app .
+
+CMD ["./app"]
